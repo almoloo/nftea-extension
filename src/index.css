@@ -11,6 +11,6 @@
 	}
 
 	body {
-		@apply bg-slate-100 text-neutral-800 dark:bg-slate-800 dark:text-neutral-300 w-[300px] max-w-full h-[400px] max-h-full;
+		@apply bg-stone-100 text-neutral-800 dark:bg-stone-800 dark:text-neutral-300 w-[300px] max-w-full h-[400px] max-h-full;
 	}
 }
