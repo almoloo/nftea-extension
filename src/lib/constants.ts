@@ -11,3 +11,6 @@ export const assetAvalancheRegex =
 	/^https:\/\/opensea\.io\/assets\/avalanche\/([^/]+)\/(\d+)$/;
 export const assetSolanaRegex =
 	/^https:\/\/opensea\.io\/assets\/solana\/([^/]+)\/([^/]+)$/;
+
+export const unleashBaseUrl = (version = 2) =>
+	`https://api.unleashnfts.com/api/v${version}`;
