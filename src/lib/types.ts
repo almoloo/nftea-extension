@@ -113,3 +113,152 @@ export interface CollectionProfile {
 	washtrade_index: number;
 	zero_profit_trades: string;
 }
+
+export interface CollectionWhales {
+	blockchain: Network;
+	buy_count: string;
+	buy_volume: number;
+	buy_whales: string;
+	chain_id: number;
+	collection: string;
+	contract_address: string;
+	contract_type: string;
+	mint_count: string;
+	mint_volume: number;
+	mint_whales: string;
+	nft_count: string;
+	sell_count: string;
+	sell_volume: number;
+	sell_whales: string;
+	total_mint_volume: number;
+	total_sales_volume: number;
+	unique_buy_wallets: string;
+	unique_mint_wallets: string;
+	unique_sell_wallets: string;
+	unique_wallets: string;
+	whale_holders: string;
+}
+
+export interface CollectionHolders {
+	block_dates: string[];
+	blockchain: Network;
+	chain_id: number;
+	contract_address: string;
+	holders: string;
+	holders_change: string | null;
+	holders_tokens_1: string;
+	holders_tokens_10_15: string;
+	holders_tokens_10_15_trend: number[];
+	holders_tokens_16_25: string;
+	holders_tokens_16_25_trend: number[];
+	holders_tokens_1_trend: number[];
+	holders_tokens_2: string;
+	holders_tokens_25plus: string;
+	holders_tokens_25plus_trend: number[];
+	holders_tokens_2_trend: number[];
+	holders_tokens_3_5: string;
+	holders_tokens_3_5_trend: number[];
+	holders_tokens_6_9: string;
+	holders_tokens_6_9_trend: number[];
+	holders_tokens_9plus: string;
+	holders_tokens_9plus_trend: number[];
+	total_holder_trend: number[];
+}
+
+export interface AssetTraders {
+	blockchain: Network;
+	chain_id: number;
+	contract_address: string;
+	token_id: string;
+	traders: string;
+	traders_buyers: string;
+	traders_buyers_change: string | null;
+	traders_change: string | null;
+	traders_ratio: string;
+	traders_ratio_change: string;
+	traders_sellers: string;
+	traders_sellers_change: string | null;
+}
+
+export interface AssetAnalytics {
+	assets: string;
+	assets_change: string | null;
+	blockchain: Network;
+	chain_id: number;
+	contract_address: string;
+	contract_created_date: string;
+	floor_price: string | null;
+	floor_price_eth: string | null;
+	sales: string;
+	sales_change: string | null;
+	token_id: string;
+	transactions: string;
+	transactions_change: string | null;
+	transfers: string;
+	transfers_change: string | null;
+	volume: number;
+	volume_change: string | null;
+}
+
+export interface AssetWashtrade {
+	blockchain: Network;
+	chain_id: number;
+	contract_address: string;
+	token_id: string;
+	washtrade_assets: string;
+	washtrade_assets_change: string | null;
+	washtrade_suspect_sales: string;
+	washtrade_suspect_sales_change: string | null;
+	washtrade_suspect_transactions: string;
+	washtrade_suspect_transactions_change: number;
+	washtrade_volume: number;
+	washtrade_volume_change: string | null;
+	washtrade_wallets: string;
+	washtrade_wallets_change: string | null;
+}
+
+export interface AssetHolder {
+	blockchain: Network;
+	contract_address: string;
+	flag: number;
+	hold_duration: number;
+	holders: number;
+	holders_change: number;
+	max_date: string;
+	past_owners_count: number;
+	token_id: string;
+	wallet_holder_new: string[];
+}
+
+export interface AssetScores {
+	all_time_low: number;
+	blockchain: Network;
+	chain_id: number;
+	contract_address: string;
+	estimated_price: number | null;
+	max_price: number;
+	price: number;
+	price_ceiling: number;
+	rarity_rank: number;
+	rarity_score: number;
+	start_price: number;
+	token_id: string;
+	washtrade_status: boolean;
+}
+
+export interface AssetPriceEstimate {
+	address: string;
+	chain_id: number;
+	collection_drivers: string;
+	collection_name: string;
+	nft_rarity_drivers: string;
+	nft_sales_drivers: string;
+	prediction_percentile: string;
+	price_estimate: number;
+	price_estimate_lower_bound: number;
+	price_estimate_upper_bound: number;
+	thumbnail_palette: string[];
+	thumbnail_url: string;
+	token_id: string;
+	token_image_url: string;
+}

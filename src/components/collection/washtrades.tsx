@@ -17,11 +17,11 @@ export default function Washtrades({
 	useEffect(() => {
 		if (data) return;
 		const fetchData = async () => {
-			const analyticsData = await fetchCollectionWashtrade(
+			const washtradesData = await fetchCollectionWashtrade(
 				contractAddress,
 				network
 			);
-			setData(analyticsData);
+			setData(washtradesData);
 			setLoading(false);
 		};
 		fetchData();

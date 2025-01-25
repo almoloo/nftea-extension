@@ -5,6 +5,10 @@ import Scores from '@/components/collection/scores';
 import Traders from '@/components/collection/traders';
 import Washtrades from '@/components/collection/washtrades';
 import Profile from '@/components/collection/profile';
+import Whales from '@/components/collection/whales';
+import Holders from '@/components/collection/holders';
+import Overview from '@/components/collection/overview';
+import Loader from './loader';
 
 interface CollectionBoardProps {
 	collection: string;
@@ -39,14 +43,14 @@ export default function CollectionBoard({ collection }: CollectionBoardProps) {
 	}, []);
 
 	return loadingContractInfo ? (
-		'loading'
+		<Loader target="collection" />
 	) : (
-		<div>
-			CollectionBoard
-			<div>Collection: {collection}</div>
-			<div>Contract Address: {contractAddress}</div>
-			<div>Network: {network}</div>
-			<hr />
+		<div className="flex flex-col gap-3">
+			<Overview
+				collection={collection}
+				network={network!}
+				contractAddress={contractAddress}
+			/>
 			<Analytics
 				contractAddress={contractAddress}
 				network={network!}
@@ -64,6 +68,14 @@ export default function CollectionBoard({ collection }: CollectionBoardProps) {
 				network={network!}
 			/>
 			<Profile
+				contractAddress={contractAddress}
+				network={network!}
+			/>
+			<Whales
+				contractAddress={contractAddress}
+				network={network!}
+			/>
+			<Holders
 				contractAddress={contractAddress}
 				network={network!}
 			/>

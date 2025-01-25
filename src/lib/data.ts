@@ -1,9 +1,17 @@
 import {
+	AssetAnalytics,
+	AssetHolder,
+	AssetPriceEstimate,
+	AssetScores,
+	AssetTraders,
+	AssetWashtrade,
 	CollectionAnalytics,
+	CollectionHolders,
 	CollectionProfile,
 	CollectionScores,
 	CollectionTraders,
 	CollectionWashtrade,
+	CollectionWhales,
 	Network,
 } from '@/lib/types';
 import { unleashBaseUrl } from '@/lib/constants';
@@ -24,6 +32,9 @@ export const fetchCollectionAnalytics = async (
 		}
 	);
 	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
 	const modifiedData = data[0];
 
 	modifiedData['assets_trend'] = JSON.parse(modifiedData['assets_trend']);
@@ -50,6 +61,9 @@ export const fetchCollectionScores = async (
 		}
 	);
 	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
 	const modifiedData = data[0];
 
 	modifiedData['avg_usd_trend'] = JSON.parse(modifiedData['avg_usd_trend']);
@@ -74,6 +88,9 @@ export const fetchCollectionTraders = async (
 		}
 	);
 	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
 	const modifiedData = data[0];
 
 	modifiedData['traders_trend'] = JSON.parse(modifiedData['traders_trend']);
@@ -101,6 +118,9 @@ export const fetchCollectionWashtrade = async (
 		}
 	);
 	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
 	const modifiedData = data[0];
 
 	modifiedData['washtrade_assets_trend'] = JSON.parse(
@@ -133,6 +153,173 @@ export const fetchCollectionProfile = async (
 		}
 	);
 	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
 
 	return data as CollectionProfile;
+};
+
+export const fetchCollectionWhales = async (
+	contractAddress: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/collection/whales?blockchain=${network}&contract_address=${contractAddress}&time_range=30d&sort_by=nft_count`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data as CollectionWhales;
+};
+
+export const fetchCollectionHolders = async (
+	contractAddress: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/collection/holders?blockchain=${network}&contract_address=${contractAddress}&time_range=30d&sort_by=holders`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+	const modifiedData = data[0];
+
+	modifiedData['total_holder_trend'] = JSON.parse(
+		modifiedData['total_holder_trend']
+	);
+
+	return modifiedData as CollectionHolders;
+};
+
+export const fetchAssetTraders = async (
+	contractAddress: string,
+	tokenId: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/traders?blockchain=${network}&contract_address=${contractAddress}&token_id=${tokenId}&time_range=30d&sort_by=traders`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data as AssetTraders;
+};
+
+export const fetchAssetAnalytics = async (
+	contractAddress: string,
+	tokenId: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/analytics?blockchain=${network}&contract_address=${contractAddress}&token_id=${tokenId}&time_range=30d&sort_by=sales`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data as AssetAnalytics;
+};
+
+export const fetchAssetScores = async (
+	contractAddress: string,
+	tokenId: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/scores?blockchain=${network}&contract_address=${contractAddress}&token_id=${tokenId}&time_range=30d&sort_by=price_ceiling`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+	const modifiedData = data[0];
+
+	modifiedData['washtrade_status'] =
+		modifiedData['washtrade_status'] === 'true';
+
+	return modifiedData as AssetScores;
+};
+
+export const fetchAssetWashtrade = async (
+	contractAddress: string,
+	tokenId: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/washtrade?blockchain=${network}&contract_address=${contractAddress}&token_id=${tokenId}&time_range=30d&sort_by=washtrade_volume`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data as AssetWashtrade;
+};
+
+export const fetchAssetHolders = async (
+	contractAddress: string,
+	tokenId: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/holders?blockchain=${network}&contract_address=${contractAddress}&token_id=${tokenId}&time_range=all&sort_by=past_owners_count`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data as AssetHolder;
+};
+
+export const fetchAssetPriceEstimate = async (
+	contractAddress: string,
+	tokenId: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/liquify/price_estimate?blockchain=${network}&contract_address=${contractAddress}&token_id=${tokenId}`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+	const modifiedData = data[0];
+
+	modifiedData['thumbnail_palette'] = JSON.parse(
+		modifiedData['thumbnail_palette']
+	);
+
+	return modifiedData as AssetPriceEstimate;
 };

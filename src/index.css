@@ -14,3 +14,23 @@
 		@apply bg-stone-100 text-neutral-800 dark:bg-stone-800 dark:text-neutral-300 w-[300px] max-w-full h-[400px] max-h-full;
 	}
 }
+
+@layer components {
+	.key-value {
+		@apply flex items-center gap-2;
+
+		.title {
+			@apply font-bold text-neutral-600 dark:text-neutral-400;
+		}
+
+		.divider {
+			@apply border-b dark:border-stone-600 border-dashed grow;
+		}
+
+		.value {
+			a {
+				@apply text-indigo-600 dark:text-indigo-400 hover:underline;
+			}
+		}
+	}
+}

@@ -1,24 +1,24 @@
-import { fetchCollectionTraders } from '@/lib/data';
-import { CollectionTraders, Network } from '@/lib/types';
+import { fetchCollectionHolders } from '@/lib/data';
+import { CollectionHolders, Network } from '@/lib/types';
 import { useEffect, useState } from 'react';
 
-interface TradersProps {
+interface HoldersProps {
 	contractAddress: string;
 	network: Network;
 }
 
-export default function Traders({ contractAddress, network }: TradersProps) {
+export default function Holders({ contractAddress, network }: HoldersProps) {
 	const [loading, setLoading] = useState(true);
-	const [data, setData] = useState<CollectionTraders | null>(null);
+	const [data, setData] = useState<CollectionHolders | null>(null);
 
 	useEffect(() => {
 		if (data) return;
 		const fetchData = async () => {
-			const traderssData = await fetchCollectionTraders(
+			const holdersData = await fetchCollectionHolders(
 				contractAddress,
 				network
 			);
-			setData(traderssData);
+			setData(holdersData);
 			setLoading(false);
 		};
 		fetchData();
@@ -28,7 +28,7 @@ export default function Traders({ contractAddress, network }: TradersProps) {
 		'loading...'
 	) : (
 		<div>
-			<h1>Traders</h1>
+			<h1>Holders</h1>
 			<pre>
 				<code>
 					{JSON.stringify(data, null, 2)

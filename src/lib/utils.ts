@@ -55,3 +55,22 @@ export function checkPageType(url: string) {
 
 	return pageInfo;
 }
+
+export function addressShortener(address: string) {
+	return `${address.slice(0, 6)}...${address.slice(-4)}`;
+}
+
+export function generateExplorerLink(network: Network, address: string) {
+	switch (network) {
+		case Network.ETHEREUM:
+			return `https://etherscan.io/address/${address}`;
+		case Network.POLYGON || Network.MATIC:
+			return `https://polygonscan.com/address/${address}`;
+		case Network.AVALANCHE:
+			return `https://cchain.explorer.avax.network/address/${address}`;
+		case Network.SOLANA:
+			return `https://explorer.solana.com/address/${address}`;
+		default:
+			return '';
+	}
+}

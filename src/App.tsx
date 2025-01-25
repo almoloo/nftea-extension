@@ -9,7 +9,6 @@ function App() {
 	const [url, setUrl] = useState('');
 	const [isActive, setIsActive] = useState(false);
 	const [type, setType] = useState<PageType | null>(null);
-	const [network, setNetwork] = useState<Network | null>(null);
 
 	// ----- CHECK CURRENT TAB URL AND INFO -----
 	useEffect(() => {
@@ -23,11 +22,6 @@ function App() {
 			const pageInfo = checkPageType(url);
 			setIsActive(pageInfo.isActive);
 			setType(pageInfo.type);
-			setNetwork(
-				pageInfo.network === Network.MATIC
-					? Network.POLYGON
-					: pageInfo.network
-			);
 		} catch (error) {
 			console.error(error);
 			setIsActive(false);
@@ -35,9 +29,9 @@ function App() {
 	}, [url]);
 
 	return (
-		<main className="flex flex-col gap-2">
+		<main className="flex flex-col gap-2 min-h-screen">
 			<Header />
-			<section className="">
+			<section className="grow p-3">
 				{isActive && type ? (
 					<>
 						{type === PageType.COLLECTION && (
@@ -47,12 +41,15 @@ function App() {
 						)}
 						{type === PageType.ASSET && (
 							<AssetBoard
-								chain={url.split('/')[4]}
+								chain={
+									url.split('/')[4] === Network.MATIC
+										? Network.POLYGON
+										: (url.split('/')[4] as Network)
+								}
 								contractAddress={url.split('/')[5]}
 								tokenId={url.split('/')[6]}
 							/>
 						)}
-						{network}
 					</>
 				) : (
 					<>NOT SUPPORTED</>
