@@ -1,11 +1,11 @@
 import { Network } from '@/lib/types';
+// import Analytics from '@/components/asset/analytics';
+import Holders from '@/components/asset/holders';
 // import Traders from '@/components/asset/traders';
-import Analytics from '@/components/asset/analytics';
-import Overview from '@/components/asset/overview';
 // import Scores from '@/components/asset/scores';
 // import Washtrade from '@/components/asset/washtrade';
-// import Holders from '@/components/asset/holders';
 // import PriceEstimate from '@/components/asset/price-estimate';
+import Overview from '@/components/asset/overview';
 
 interface AssetBoardProps {
 	chain: Network;
@@ -25,9 +25,14 @@ export default function AssetBoard({
 				network={chain}
 				tokenId={tokenId}
 			/>
-			<Analytics
+			{/* <Analytics
 				network={chain}
 				contractAddress={contractAddress}
+				tokenId={tokenId}
+			/> */}
+			<Holders
+				contractAddress={contractAddress}
+				network={chain}
 				tokenId={tokenId}
 			/>
 			{/* <Traders
@@ -43,11 +48,6 @@ export default function AssetBoard({
 			{/* <Washtrade
 				network={chain}
 				contractAddress={contractAddress}
-				tokenId={tokenId}
-			/> */}
-			{/* <Holders
-				contractAddress={contractAddress}
-				network={chain}
 				tokenId={tokenId}
 			/> */}
 			{/* <PriceEstimate
