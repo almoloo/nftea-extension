@@ -1,6 +1,8 @@
 import { fetchAssetAnalytics } from '@/lib/data';
 import { AssetAnalytics, Network } from '@/lib/types';
 import { useEffect, useState } from 'react';
+import InfoHeading from '@/components/info-heading';
+import DataBox from '@/components/data-box';
 
 interface AnalyticsProps {
 	network: Network;
@@ -30,14 +32,54 @@ export default function Analytics({
 		fetchData();
 	}, []);
 
-	return loading ? (
-		'loading...'
-	) : (
-		<div>
-			<h1>Analytics</h1>
-			<pre>
-				<code>{JSON.stringify(data, null, 2)}</code>
-			</pre>
+	if (loading) {
+		return 'loading...';
+	}
+
+	if (!data) {
+		return 'No data';
+	}
+
+	return (
+		<div className="flex flex-col gap-3">
+			<section className="flex flex-col gap-2">
+				<InfoHeading>Key Metrics</InfoHeading>
+				<div className="grid grid-cols-2 gap-3">
+					<DataBox
+						title="Assets"
+						value={data.assets}
+						change={data.assets_change}
+					/>
+					<DataBox
+						title="Sales"
+						value={data.sales}
+						change={data.sales_change}
+					/>
+					<DataBox
+						title="Volume"
+						value={data.volume}
+						change={data.volume_change}
+					/>
+				</div>
+			</section>
+			<section className="flex flex-col gap-2">
+				<InfoHeading>Transaction Insights</InfoHeading>
+				<div className="grid grid-cols-2 gap-3">
+					<DataBox
+						title="Total Transactions"
+						value={data.transactions}
+					/>
+					<DataBox
+						title="Transfers"
+						value={data.transfers}
+					/>
+					<DataBox
+						title="Transaction Change"
+						value={null}
+						change={data.transactions_change}
+					/>
+				</div>
+			</section>
 		</div>
 	);
 }

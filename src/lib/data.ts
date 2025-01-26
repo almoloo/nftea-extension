@@ -157,7 +157,7 @@ export const fetchCollectionProfile = async (
 		return null;
 	}
 
-	return data as CollectionProfile;
+	return data[0] as CollectionProfile;
 };
 
 export const fetchCollectionWhales = async (
@@ -175,7 +175,7 @@ export const fetchCollectionWhales = async (
 		return null;
 	}
 
-	return data as CollectionWhales;
+	return data[0] as CollectionWhales;
 };
 
 export const fetchCollectionHolders = async (
@@ -217,7 +217,7 @@ export const fetchAssetTraders = async (
 		return null;
 	}
 
-	return data as AssetTraders;
+	return data[0] as AssetTraders;
 };
 
 export const fetchAssetAnalytics = async (
@@ -236,7 +236,7 @@ export const fetchAssetAnalytics = async (
 		return null;
 	}
 
-	return data as AssetAnalytics;
+	return data[0] as AssetAnalytics;
 };
 
 export const fetchAssetScores = async (
@@ -278,7 +278,7 @@ export const fetchAssetWashtrade = async (
 		return null;
 	}
 
-	return data as AssetWashtrade;
+	return data[0] as AssetWashtrade;
 };
 
 export const fetchAssetHolders = async (
@@ -297,7 +297,7 @@ export const fetchAssetHolders = async (
 		return null;
 	}
 
-	return data as AssetHolder;
+	return data[0] as AssetHolder;
 };
 
 export const fetchAssetPriceEstimate = async (

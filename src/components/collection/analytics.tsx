@@ -104,9 +104,6 @@ export default function Analytics({
 			</section>
 			<section className="flex flex-col gap-2">
 				<InfoHeading>Key Metrics</InfoHeading>
-				{/* <div>
-					Assets: {data.assets} (+{data?.assets_change}%)
-				</div> */}
 				<div className="grid grid-cols-2 gap-3">
 					<DataBox
 						title="Assets"

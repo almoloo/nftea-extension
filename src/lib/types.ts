@@ -182,22 +182,20 @@ export interface AssetTraders {
 
 export interface AssetAnalytics {
 	assets: string;
-	assets_change: string | null;
+	assets_change: number | null;
 	blockchain: Network;
 	chain_id: number;
 	contract_address: string;
 	contract_created_date: string;
-	floor_price: string | null;
-	floor_price_eth: string | null;
-	sales: string;
-	sales_change: string | null;
+	sales: string | number;
+	sales_change: number | null;
 	token_id: string;
-	transactions: string;
-	transactions_change: string | null;
+	transactions: string | number;
+	transactions_change: number | null;
 	transfers: string;
 	transfers_change: string | null;
 	volume: number;
-	volume_change: string | null;
+	volume_change: number | null;
 }
 
 export interface AssetWashtrade {
