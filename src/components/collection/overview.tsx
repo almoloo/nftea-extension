@@ -19,7 +19,7 @@ export default function Overview({
 	contractAddress,
 }: OverviewProps) {
 	return (
-		<section className="flex flex-col gap-2 bg-white/75 dark:bg-neutral-200/10 p-3 rounded-lg">
+		<section className="flex flex-col gap-2 bg-white/75 dark:bg-neutral-200/10 p-3 rounded-xl">
 			<h1 className="text-center font-medium text-neutral-600 dark:text-neutral-300 text-sm">
 				Collection Overview
 			</h1>
