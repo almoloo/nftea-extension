@@ -2,8 +2,8 @@ import { Network } from '@/lib/types';
 import { useEffect, useState } from 'react';
 // import Analytics from '@/components/collection/analytics';
 // import Holders from '@/components/collection/holders';
-import Scores from '@/components/collection/scores';
-// import Traders from '@/components/collection/traders';
+// import Scores from '@/components/collection/scores';
+import Traders from '@/components/collection/traders';
 // import Washtrades from '@/components/collection/washtrades';
 // import Profile from '@/components/collection/profile';
 // import Whales from '@/components/collection/whales';
@@ -59,14 +59,14 @@ export default function CollectionBoard({ collection }: CollectionBoardProps) {
 				contractAddress={contractAddress}
 				network={network!}
 			/> */}
-			<Scores
-				contractAddress={contractAddress}
-				network={network!}
-			/>
-			{/* <Traders
+			{/* <Scores
 				contractAddress={contractAddress}
 				network={network!}
 			/> */}
+			<Traders
+				contractAddress={contractAddress}
+				network={network!}
+			/>
 			{/* <Washtrades
 				contractAddress={contractAddress}
 				network={network!}

@@ -59,7 +59,7 @@ export interface CollectionTraders {
 	traders: number;
 	traders_buyers: number;
 	traders_buyers_change: number;
-	trader_buyers_trend: number[];
+	traders_buyers_trend: number[];
 	traders_change: number;
 	traders_ratio: string;
 	traders_ratio_change: string;
