@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import { colors } from '@/lib/constants';
 
 interface AnalyticsProps {
 	contractAddress: string;
@@ -87,17 +88,17 @@ export default function Analytics({
 						<Line
 							type="monotone"
 							dataKey="sales"
-							stroke="#8884d8"
+							stroke={colors[0]}
 						/>
 						<Line
 							type="monotone"
 							dataKey="transactions"
-							stroke="#82ca9d"
+							stroke={colors[1]}
 						/>
 						<Line
 							type="monotone"
 							dataKey="volume"
-							stroke="#ff7300"
+							stroke={colors[2]}
 						/>
 					</LineChart>
 				</ResponsiveContainer>

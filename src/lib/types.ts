@@ -43,7 +43,7 @@ export interface CollectionScores {
 	contract_address: string;
 	market_cap: string;
 	marketcap_change: string;
-	marketcap_trend: string;
+	marketcap_trend: number[];
 	minting_revenue: number;
 	price_avg: string;
 	price_avg_change: string;

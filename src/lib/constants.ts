@@ -17,7 +17,7 @@ export const unleashBaseUrl = (version = 2) =>
 
 export const colors = [
 	'#FF5733', // Vibrant Red-Orange
-	'#33FF57', // Bright Green
+	'#72b043', // Bright Green
 	'#3357FF', // Vivid Blue
 	'#FF33A1', // Hot Pink
 	'#33FFF5', // Aqua
