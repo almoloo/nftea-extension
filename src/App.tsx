@@ -4,6 +4,7 @@ import { Network, PageType } from '@/lib/types';
 import { checkPageType } from './lib/utils';
 import CollectionBoard from '@/components/collection-board';
 import AssetBoard from '@/components/asset-board';
+import UserBoard from './components/user-board';
 
 function App() {
 	const [url, setUrl] = useState('');
@@ -49,6 +50,9 @@ function App() {
 								contractAddress={url.split('/')[5]}
 								tokenId={url.split('/')[6]}
 							/>
+						)}
+						{type === PageType.USER && (
+							<UserBoard userName={url.split('/')[3]} />
 						)}
 					</>
 				) : (

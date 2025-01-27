@@ -260,3 +260,67 @@ export interface AssetPriceEstimate {
 	token_id: string;
 	token_image_url: string;
 }
+
+export interface UserAnalytics {
+	blockchain: Network;
+	buy_volume: number;
+	chain_id: number;
+	minted_value: number;
+	minted_value_change: number | null;
+	nft_bought: string;
+	nft_bought_change: number | null;
+	nft_burn: string;
+	nft_burn_change: number | null;
+	nft_mint: string;
+	nft_mint_change: number | null;
+	nft_sold: string;
+	nft_sold_change: number | null;
+	nft_transfer: string;
+	nft_transfer_change: number | null;
+	sales: string;
+	sales_change: number | null;
+	sell_volume: number;
+	transactions: string;
+	transactions_change: number | null;
+	transfers: string;
+	transfers_change: number | null;
+	volume: number;
+	volume_change: number | null;
+	wallet: string;
+}
+
+export interface UserScores {
+	blockchain: Network;
+	chain_id: number;
+	collection_count: string;
+	estimated_portfolio_value: number | null;
+	nft_count: string;
+	pnl: string;
+	portfolio_value: number;
+	realized_profit: number;
+	unrealized_profit: number;
+	wallet: string;
+	washtrade_nft_count: string;
+}
+
+export interface UserTraders {
+	blockchain: Network;
+	chain_id: number;
+	traders: string;
+	traders_buyers: string;
+	traders_buyers_change: number;
+	traders_change: number;
+	traders_sellers: string;
+	traders_sellers_change: number;
+	wallet: string;
+}
+
+export interface UserWashtrade {
+	blockchain: Network;
+	chain_id: number;
+	wallet: string;
+	washtrade_suspect_sales: string;
+	washtrade_suspect_sales_change: number;
+	washtrade_volume: number;
+	washtrade_volume_change: number;
+}

@@ -23,7 +23,7 @@ export default function CollectionBoard({ collection }: CollectionBoardProps) {
 		// Fetch collection contract address
 		const fetchCollectionContractAddress = async () => {
 			const collectionInfo = await fetch(
-				`https://api.opensea.io/api/v2/collections/${collection}`,
+				`https://api.opensea.io/api/v2/accounts/${collection}`,
 				{
 					headers: {
 						'x-api-key': import.meta.env.VITE_OPENSEA_API_KEY,

@@ -13,6 +13,10 @@ import {
 	CollectionWashtrade,
 	CollectionWhales,
 	Network,
+	UserAnalytics,
+	UserScores,
+	UserTraders,
+	UserWashtrade,
 } from '@/lib/types';
 import { unleashBaseUrl } from '@/lib/constants';
 
@@ -322,4 +326,67 @@ export const fetchAssetPriceEstimate = async (
 	);
 
 	return modifiedData as AssetPriceEstimate;
+};
+
+export const fetchUserAnalytics = async (address: string, network: Network) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/wallet/analytics?blockchain=${network}&wallet=${address}&time_range=30d&sort_by=volume`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data[0] as UserAnalytics;
+};
+
+export const fetchUserScores = async (address: string, network: Network) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/wallet/scores?blockchain=${network}&wallet=${address}&time_range=30d&sort_by=portfolio_value`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data[0] as UserScores;
+};
+
+export const fetchUserTraders = async (address: string, network: Network) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/wallet/traders?blockchain=${network}&wallet=${address}&time_range=30d&sort_by=traders`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data[0] as UserTraders;
+};
+
+export const fetchUserWashtrades = async (
+	address: string,
+	network: Network
+) => {
+	const response = await fetch(
+		`${unleashBaseUrl()}/nft/wallet/washtrade?blockchain=${network}&wallet=${address}&time_range=30d&sort_by=washtrade_volume`,
+		{
+			headers,
+		}
+	);
+	const { data } = await response.json();
+	if (!data) {
+		return null;
+	}
+
+	return data[0] as UserWashtrade;
 };
