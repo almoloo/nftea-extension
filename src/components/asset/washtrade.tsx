@@ -14,6 +14,7 @@ import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { TriangleAlertIcon } from 'lucide-react';
+import Loader from '@/components/loader';
 
 interface WashtradeProps {
 	network: Network;
@@ -76,7 +77,7 @@ export default function Washtrade({
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="asset washtrade" />;
 	}
 
 	if (!data) {

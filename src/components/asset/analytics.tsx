@@ -3,6 +3,7 @@ import { AssetAnalytics, Network } from '@/lib/types';
 import { useEffect, useState } from 'react';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface AnalyticsProps {
 	network: Network;
@@ -33,7 +34,7 @@ export default function Analytics({
 	}, []);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="asset analytics" />;
 	}
 
 	if (!data) {

@@ -3,6 +3,7 @@ import { AssetScores, Network } from '@/lib/types';
 import { useEffect, useState } from 'react';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface ScoresProps {
 	contractAddress: string;
@@ -33,7 +34,7 @@ export default function Scores({
 	}, []);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="asset scores" />;
 	}
 
 	if (!data) {

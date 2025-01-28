@@ -16,6 +16,7 @@ import {
 import { colors } from '@/lib/constants';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface WhalesProps {
 	contractAddress: string;
@@ -77,7 +78,7 @@ export default function Whales({ contractAddress, network }: WhalesProps) {
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="collection whales" />;
 	}
 
 	if (!data) {

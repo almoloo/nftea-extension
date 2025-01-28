@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface TradersProps {
 	contractAddress: string;
@@ -63,7 +64,7 @@ export default function Traders({ contractAddress, network }: TradersProps) {
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="collection traders" />;
 	}
 
 	if (!data) {

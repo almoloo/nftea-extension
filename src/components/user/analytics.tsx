@@ -16,6 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { colors } from '@/lib/constants';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface AnalyticsProps {
 	address: string;
@@ -83,7 +84,7 @@ export default function Analytics({ address, network }: AnalyticsProps) {
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="user analytics" />;
 	}
 
 	if (!data) {

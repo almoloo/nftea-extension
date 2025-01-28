@@ -3,6 +3,7 @@ import { Network, UserWashtrade } from '@/lib/types';
 import { useEffect, useState } from 'react';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface WashtradesProps {
 	address: string;
@@ -24,7 +25,7 @@ export default function Washtrades({ address, network }: WashtradesProps) {
 	}, []);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="user washtrades" />;
 	}
 
 	if (!data) {

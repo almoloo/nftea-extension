@@ -21,6 +21,7 @@ import {
 import { colors } from '@/lib/constants';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface ProfileProps {
 	contractAddress: string;
@@ -104,7 +105,7 @@ export default function Profile({ contractAddress, network }: ProfileProps) {
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="collection profile" />;
 	}
 
 	if (!data) {

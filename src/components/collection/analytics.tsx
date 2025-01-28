@@ -12,6 +12,7 @@ import {
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import { colors } from '@/lib/constants';
+import Loader from '@/components/loader';
 
 interface AnalyticsProps {
 	contractAddress: string;
@@ -64,7 +65,7 @@ export default function Analytics({
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="collection analytics" />;
 	}
 
 	if (!data) {

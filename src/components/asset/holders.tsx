@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import { addressShortener, generateExplorerLink } from '@/lib/utils';
+import Loader from '@/components/loader';
 
 interface HoldersProps {
 	network: Network;
@@ -34,7 +35,7 @@ export default function Holders({
 	}, []);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="asset holders" />;
 	}
 
 	if (!data) {

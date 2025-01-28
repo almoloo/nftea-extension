@@ -16,6 +16,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface HoldersProps {
 	contractAddress: string;
@@ -111,7 +112,7 @@ export default function Holders({ contractAddress, network }: HoldersProps) {
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="collection holders" />;
 	}
 
 	if (!data) {

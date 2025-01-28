@@ -2,10 +2,16 @@ import { useEffect, useState } from 'react';
 import Loader from '@/components/loader';
 import Overview from './user/overview';
 import { Network } from '@/lib/types';
-// import Analytics from './user/analytics';
-// import Scores from './user/scores';
-// import Traders from './user/traders';
+import Analytics from './user/analytics';
+import Scores from './user/scores';
+import Traders from './user/traders';
 import Washtrades from './user/washtrades';
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion';
 
 interface UserBoardProps {
 	userName: string;
@@ -49,22 +55,44 @@ export default function UserBoard({ userName }: UserBoardProps) {
 				userName={userName}
 				address={walletAddress!}
 			/>
-			{/* <Analytics
-				address={walletAddress!}
-				network={network}
-			/> */}
-			{/* <Scores
-				address={walletAddress!}
-				network={network}
-			/> */}
-			{/* <Traders
-				address={walletAddress!}
-				network={network}
-			/> */}
-			<Washtrades
-				address={walletAddress!}
-				network={network}
-			/>
+			<Accordion type="multiple">
+				<AccordionItem value="analytics">
+					<AccordionTrigger>Analytics</AccordionTrigger>
+					<AccordionContent>
+						<Analytics
+							address={walletAddress!}
+							network={network}
+						/>
+					</AccordionContent>
+				</AccordionItem>
+				<AccordionItem value="scores">
+					<AccordionTrigger>Scores</AccordionTrigger>
+					<AccordionContent>
+						<Scores
+							address={walletAddress!}
+							network={network}
+						/>
+					</AccordionContent>
+				</AccordionItem>
+				<AccordionItem value="traders">
+					<AccordionTrigger>Traders</AccordionTrigger>
+					<AccordionContent>
+						<Traders
+							address={walletAddress!}
+							network={network}
+						/>
+					</AccordionContent>
+				</AccordionItem>
+				<AccordionItem value="washtrades">
+					<AccordionTrigger>Washtrades</AccordionTrigger>
+					<AccordionContent>
+						<Washtrades
+							address={walletAddress!}
+							network={network}
+						/>
+					</AccordionContent>
+				</AccordionItem>
+			</Accordion>
 		</div>
 	);
 }

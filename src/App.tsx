@@ -1,10 +1,11 @@
 import Header from '@/components/header';
 import { useEffect, useState } from 'react';
 import { Network, PageType } from '@/lib/types';
-import { checkPageType } from './lib/utils';
+import { checkPageType } from '@/lib/utils';
 import CollectionBoard from '@/components/collection-board';
 import AssetBoard from '@/components/asset-board';
-import UserBoard from './components/user-board';
+import UserBoard from '@/components/user-board';
+import Footer from '@/components/footer';
 
 function App() {
 	const [url, setUrl] = useState('');
@@ -59,6 +60,7 @@ function App() {
 					<>NOT SUPPORTED</>
 				)}
 			</section>
+			<Footer />
 		</main>
 	);
 }

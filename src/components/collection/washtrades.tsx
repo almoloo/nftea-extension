@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface WashtradesProps {
 	contractAddress: string;
@@ -68,7 +69,7 @@ export default function Washtrades({
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="collection washtrades" />;
 	}
 
 	if (!data) {

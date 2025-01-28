@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface ScoresProps {
 	address: string;
@@ -57,7 +58,7 @@ export default function Scores({ address, network }: ScoresProps) {
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="user scores" />;
 	}
 
 	if (!data) {

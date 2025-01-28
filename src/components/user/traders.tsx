@@ -3,6 +3,7 @@ import { Network, UserTraders } from '@/lib/types';
 import { useEffect, useState } from 'react';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface TradersProps {
 	address: string;
@@ -24,7 +25,7 @@ export default function Traders({ address, network }: TradersProps) {
 	}, []);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="user traders" />;
 	}
 
 	if (!data) {

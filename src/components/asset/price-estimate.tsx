@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
+import Loader from '@/components/loader';
 
 interface PriceEstimateProps {
 	network: Network;
@@ -66,7 +67,7 @@ export default function PriceEstimate({
 	}, [data]);
 
 	if (loading) {
-		return 'loading...';
+		return <Loader target="asset price estimate" />;
 	}
 
 	if (!data) {
