@@ -101,6 +101,7 @@ export interface CollectionProfile {
 	diamond_hands: string;
 	fear_and_greed_index: number;
 	holder_metrics_score: number;
+	liquidity_score: number;
 	loss_making_trades: string;
 	loss_making_trades_percentage: number;
 	loss_making_volume: number;

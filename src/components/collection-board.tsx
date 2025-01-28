@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 // import Holders from '@/components/collection/holders';
 // import Scores from '@/components/collection/scores';
 // import Traders from '@/components/collection/traders';
-import Washtrades from '@/components/collection/washtrades';
-// import Profile from '@/components/collection/profile';
+// import Washtrades from '@/components/collection/washtrades';
+import Profile from '@/components/collection/profile';
 // import Whales from '@/components/collection/whales';
 import Overview from '@/components/collection/overview';
 import Loader from './loader';
@@ -67,14 +67,14 @@ export default function CollectionBoard({ collection }: CollectionBoardProps) {
 				contractAddress={contractAddress}
 				network={network!}
 			/> */}
-			<Washtrades
-				contractAddress={contractAddress}
-				network={network!}
-			/>
-			{/* <Profile
+			{/* <Washtrades
 				contractAddress={contractAddress}
 				network={network!}
 			/> */}
+			<Profile
+				contractAddress={contractAddress}
+				network={network!}
+			/>
 			{/* <Whales
 				contractAddress={contractAddress}
 				network={network!}
