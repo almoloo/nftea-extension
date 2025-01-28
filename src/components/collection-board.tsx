@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 // import Analytics from '@/components/collection/analytics';
 // import Holders from '@/components/collection/holders';
 // import Scores from '@/components/collection/scores';
-import Traders from '@/components/collection/traders';
-// import Washtrades from '@/components/collection/washtrades';
+// import Traders from '@/components/collection/traders';
+import Washtrades from '@/components/collection/washtrades';
 // import Profile from '@/components/collection/profile';
 // import Whales from '@/components/collection/whales';
 import Overview from '@/components/collection/overview';
@@ -23,7 +23,7 @@ export default function CollectionBoard({ collection }: CollectionBoardProps) {
 		// Fetch collection contract address
 		const fetchCollectionContractAddress = async () => {
 			const collectionInfo = await fetch(
-				`https://api.opensea.io/api/v2/accounts/${collection}`,
+				`https://api.opensea.io/api/v2/collections/${collection}`,
 				{
 					headers: {
 						'x-api-key': import.meta.env.VITE_OPENSEA_API_KEY,
@@ -63,14 +63,14 @@ export default function CollectionBoard({ collection }: CollectionBoardProps) {
 				contractAddress={contractAddress}
 				network={network!}
 			/> */}
-			<Traders
-				contractAddress={contractAddress}
-				network={network!}
-			/>
-			{/* <Washtrades
+			{/* <Traders
 				contractAddress={contractAddress}
 				network={network!}
 			/> */}
+			<Washtrades
+				contractAddress={contractAddress}
+				network={network!}
+			/>
 			{/* <Profile
 				contractAddress={contractAddress}
 				network={network!}
