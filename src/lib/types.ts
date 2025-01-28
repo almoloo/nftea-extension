@@ -132,7 +132,7 @@ export interface CollectionWhales {
 	sell_volume: number;
 	sell_whales: string;
 	total_mint_volume: number;
-	total_sales_volume: number;
+	total_sale_volume: number;
 	unique_buy_wallets: string;
 	unique_mint_wallets: string;
 	unique_sell_wallets: string;
