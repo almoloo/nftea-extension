@@ -29,13 +29,24 @@ export default function DataBox({ title, unit, value, change }: DataBoxProps) {
 					</Tooltip>
 				</TooltipProvider>
 				{change && (
-					<small
-						className={`text-xs font-medium ${
-							change > 0 ? 'text-green-500' : 'text-red-500'
-						}`}
-					>
-						{change.toFixed(3)}%
-					</small>
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger className="w-full">
+								<small
+									className={`text-xs font-medium ${
+										change > 0
+											? 'text-green-500'
+											: 'text-red-500'
+									}`}
+								>
+									{change.toFixed(3)}%
+								</small>
+							</TooltipTrigger>
+							<TooltipContent>
+								<small>Change</small>
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
 				)}
 			</div>
 			<small className="text-xs font-medium p-2 bg-neutral-200 dark:bg-white/15">

@@ -1,6 +1,8 @@
 import { fetchUserWashtrades } from '@/lib/data';
 import { Network, UserWashtrade } from '@/lib/types';
 import { useEffect, useState } from 'react';
+import InfoHeading from '@/components/info-heading';
+import DataBox from '@/components/data-box';
 
 interface WashtradesProps {
 	address: string;
@@ -30,9 +32,22 @@ export default function Washtrades({ address, network }: WashtradesProps) {
 	}
 
 	return (
-		<div>
-			<h1>Washtrades</h1>
-			<pre>{JSON.stringify(data, null, 2)}</pre>
+		<div className="flex flex-col gap-3">
+			<section className="flex flex-col gap-2">
+				<InfoHeading>Key Metrics</InfoHeading>
+				<div className="grid grid-cols-2 gap-3">
+					<DataBox
+						title="Sus. Sales"
+						value={data.washtrade_suspect_sales}
+						change={data.washtrade_suspect_sales_change}
+					/>
+					<DataBox
+						title="Volume"
+						value={data.washtrade_volume}
+						change={data.washtrade_volume_change}
+					/>
+				</div>
+			</section>
 		</div>
 	);
 }
