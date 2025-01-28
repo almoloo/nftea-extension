@@ -3,8 +3,8 @@ import { Network } from '@/lib/types';
 // import Holders from '@/components/asset/holders';
 // import Scores from '@/components/asset/scores';
 // import Traders from '@/components/asset/traders';
-import Washtrade from '@/components/asset/washtrade';
-// import PriceEstimate from '@/components/asset/price-estimate';
+// import Washtrade from '@/components/asset/washtrade';
+import PriceEstimate from '@/components/asset/price-estimate';
 import Overview from '@/components/asset/overview';
 
 interface AssetBoardProps {
@@ -45,16 +45,16 @@ export default function AssetBoard({
 				contractAddress={contractAddress}
 				tokenId={tokenId}
 			/> */}
-			<Washtrade
+			{/* <Washtrade
 				network={chain}
 				contractAddress={contractAddress}
-				tokenId={tokenId}
-			/>
-			{/* <PriceEstimate
-				contractAddress={contractAddress}
-				network={chain}
 				tokenId={tokenId}
 			/> */}
+			<PriceEstimate
+				contractAddress={contractAddress}
+				network={chain}
+				tokenId={tokenId}
+			/>
 		</div>
 	);
 }
