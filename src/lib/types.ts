@@ -203,17 +203,19 @@ export interface AssetWashtrade {
 	blockchain: Network;
 	chain_id: number;
 	contract_address: string;
+	flag: number;
+	max_date: string;
 	token_id: string;
-	washtrade_assets: string;
-	washtrade_assets_change: string | null;
-	washtrade_suspect_sales: string;
-	washtrade_suspect_sales_change: string | null;
-	washtrade_suspect_transactions: string;
+	washtrade_assets: number;
+	washtrade_assets_change: number;
+	washtrade_suspect_sales: number;
+	washtrade_suspect_sales_change: number;
+	washtrade_suspect_transactions: number;
 	washtrade_suspect_transactions_change: number;
 	washtrade_volume: number;
-	washtrade_volume_change: string | null;
-	washtrade_wallets: string;
-	washtrade_wallets_change: string | null;
+	washtrade_volume_change: number;
+	washtrade_wallets: number;
+	washtrade_wallets_change: number;
 }
 
 export interface AssetHolder {
