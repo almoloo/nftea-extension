@@ -37,9 +37,7 @@ function App() {
 				{isActive && type ? (
 					<>
 						{type === PageType.COLLECTION && (
-							<CollectionBoard
-								collection={url.split('/').slice(-1)[0]}
-							/>
+							<CollectionBoard collection={url.split('/')[4]} />
 						)}
 						{type === PageType.ASSET && (
 							<AssetBoard

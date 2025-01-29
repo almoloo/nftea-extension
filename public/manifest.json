@@ -6,6 +6,6 @@
 	"action": {
 		"default_popup": "index.html"
 	},
-	"permissions": ["storage", "activeTab"],
+	"permissions": ["activeTab"],
 	"host_permissions": ["https://*.opensea.io/*"]
 }

@@ -1,4 +1,5 @@
-export const collectionRegex = /^https:\/\/opensea\.io\/collection\/([^/]+)$/;
+export const collectionRegex =
+	/^https:\/\/opensea\.io\/collection\/([^/?]+)(?:\/[^?]*)?(?:\?.*)?$/;
 export const assetRegex =
 	/^https:\/\/opensea\.io\/assets\/(matic|ethereum|avalanche)\/([^/]+)\/(\d+)$|^https:\/\/opensea\.io\/assets\/solana\/([^/]+)\/([^/]+)$/;
 export const userRegex =
