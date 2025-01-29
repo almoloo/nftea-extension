@@ -7,5 +7,12 @@
 		"default_popup": "index.html"
 	},
 	"permissions": ["activeTab"],
-	"host_permissions": ["https://*.opensea.io/*"]
+	"host_permissions": ["https://*.opensea.io/*"],
+	"icons": {
+		"48": "favicon48.png",
+		"96": "favicon96.png",
+		"128": "favicon128.png",
+		"192": "favicon192.png",
+		"512": "favicon512.png"
+	}
 }
