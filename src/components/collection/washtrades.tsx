@@ -13,6 +13,7 @@ import {
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import Loader from '@/components/loader';
+import EmptyState from '@/components/empty-state';
 
 interface WashtradesProps {
 	contractAddress: string;
@@ -73,7 +74,7 @@ export default function Washtrades({
 	}
 
 	if (!data) {
-		return 'No data';
+		return <EmptyState />;
 	}
 
 	return (

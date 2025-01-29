@@ -15,6 +15,7 @@ import DataBox from '@/components/data-box';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { TriangleAlertIcon } from 'lucide-react';
 import Loader from '@/components/loader';
+import EmptyState from '@/components/empty-state';
 
 interface WashtradeProps {
 	network: Network;
@@ -81,7 +82,7 @@ export default function Washtrade({
 	}
 
 	if (!data) {
-		return 'No data';
+		return <EmptyState />;
 	}
 
 	return (

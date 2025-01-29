@@ -17,6 +17,7 @@ import { colors } from '@/lib/constants';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import Loader from '@/components/loader';
+import EmptyState from '@/components/empty-state';
 
 interface WhalesProps {
 	contractAddress: string;
@@ -82,7 +83,7 @@ export default function Whales({ contractAddress, network }: WhalesProps) {
 	}
 
 	if (!data) {
-		return 'No data';
+		return <EmptyState />;
 	}
 
 	return (

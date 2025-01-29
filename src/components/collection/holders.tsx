@@ -17,6 +17,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import Loader from '@/components/loader';
+import EmptyState from '@/components/empty-state';
 
 interface HoldersProps {
 	contractAddress: string;
@@ -116,7 +117,7 @@ export default function Holders({ contractAddress, network }: HoldersProps) {
 	}
 
 	if (!data) {
-		return 'No data';
+		return <EmptyState />;
 	}
 
 	return (
