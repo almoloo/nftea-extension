@@ -12,6 +12,13 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from '@/components/ui/accordion';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
 
 interface UserBoardProps {
 	userName: string;
@@ -55,6 +62,22 @@ export default function UserBoard({ userName }: UserBoardProps) {
 				userName={userName}
 				address={walletAddress!}
 			/>
+			<Select
+				value={network}
+				onValueChange={(value: Network) => {
+					setNetwork(value as Network);
+				}}
+			>
+				<SelectTrigger className="w-full">
+					<SelectValue placeholder="Select network" />
+				</SelectTrigger>
+				<SelectContent>
+					<SelectItem value={Network.ETHEREUM}>Ethereum</SelectItem>
+					<SelectItem value={Network.AVALANCHE}>Avalanche</SelectItem>
+					<SelectItem value={Network.POLYGON}>Polygon</SelectItem>
+					<SelectItem value={Network.SOLANA}>Solana</SelectItem>
+				</SelectContent>
+			</Select>
 			<Accordion type="multiple">
 				<AccordionItem value="analytics">
 					<AccordionTrigger>Analytics</AccordionTrigger>

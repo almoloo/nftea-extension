@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import Loader from '@/components/loader';
+import EmptyState from '@/components/empty-state';
 
 interface TradersProps {
 	address: string;
@@ -29,7 +30,7 @@ export default function Traders({ address, network }: TradersProps) {
 	}
 
 	if (!data) {
-		return 'No data';
+		return <EmptyState />;
 	}
 
 	return (

@@ -17,10 +17,12 @@ import { colors } from '@/lib/constants';
 import InfoHeading from '@/components/info-heading';
 import DataBox from '@/components/data-box';
 import Loader from '@/components/loader';
+import EmptyState from '@/components/empty-state';
 
 interface AnalyticsProps {
 	address: string;
 	network: Network;
+	count?: number;
 }
 
 interface activityChart {
@@ -88,7 +90,7 @@ export default function Analytics({ address, network }: AnalyticsProps) {
 	}
 
 	if (!data) {
-		return 'No data';
+		return <EmptyState />;
 	}
 
 	return (
