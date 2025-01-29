@@ -86,6 +86,9 @@ export default function Holders({
 					</ol>
 				</section>
 			)}
+			<section className="text-center">
+				<small className="text-neutral-500">All time data</small>
+			</section>
 		</div>
 	);
 }

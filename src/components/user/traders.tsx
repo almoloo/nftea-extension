@@ -55,6 +55,9 @@ export default function Traders({ address, network }: TradersProps) {
 					/>
 				</div>
 			</section>
+			<section className="text-center">
+				<small className="text-neutral-500">Past 30 days</small>
+			</section>
 		</div>
 	);
 }

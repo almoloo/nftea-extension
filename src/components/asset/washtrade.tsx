@@ -128,6 +128,9 @@ export default function Washtrade({
 					/>
 				</div>
 			</section>
+			<section className="text-center">
+				<small className="text-neutral-500">Past 30 days</small>
+			</section>
 		</div>
 	);
 }

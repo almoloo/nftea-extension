@@ -186,6 +186,9 @@ export default function Analytics({ address, network }: AnalyticsProps) {
 					/>
 				</div>
 			</section>
+			<section className="text-center">
+				<small className="text-neutral-500">Past 30 days</small>
+			</section>
 		</div>
 	);
 }
