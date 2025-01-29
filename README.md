@@ -1,50 +1,122 @@
-# React + TypeScript + Vite
+# NFTea 🫖
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NFTea is a Chrome extension that brings powerful NFT analytics directly into your OpenSea browsing experience. Get instant access to detailed metrics, market insights, and trading data for NFT collections, assets, and wallets - all in a sleek, user-friendly interface.
 
-Currently, two official plugins are available:
+![Cover](./readme/cover.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### 🖼️ Collection Insights
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-   Analytics with historical price and volume trends
+-   Holder distribution and whale analysis
+-   Comprehensive scoring metrics
+-   Trading patterns and wash trade detection
+-   Detailed holder profiles
+-   Whale tracking
 
-- Configure the top-level `parserOptions` property like this:
+### 🏷️ Asset Details
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+-   Price analytics and historical data
+-   Current holder information
+-   Advanced scoring metrics
+-   Trading history
+-   Wash trade detection
+-   Price estimates
+
+### 👤 Wallet Analytics
+
+-   Portfolio analytics
+-   Performance scores
+-   Trading patterns
+-   Wash trade detection
+-   Activity metrics
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/almoloo/nftea-extension.git
+cd nftea-extension
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Create a .env file in the root directory with your API keys:
+
+```bash
+VITE_OPENSEA_API_KEY=your_opensea_api_key
+VITE_UNLEASHNFT_API_KEY=your_unleashnft_api_key
+```
+
+4. Build the extension
+
+```bash
+npm run build
+```
+
+5. Load the extension in Chrome:
+
+-   Open Chrome and navigate to `chrome://extensions/`
+-   Enable "Developer mode" in the top right
+-   Click "Load unpacked" and select the `build` directory from the project
+
+## Development
+
+The project is built with:
+
+-   React
+-   TypeScript
+-   Tailwind CSS
+-   shadcn/ui components
+-   OpenSea API
+-   UnleashNFT API
+
+## API Rate Limits
+
+The UnleashNFT API has a rate limit of 20 requests per second. Please ensure your implementation respects this limit to maintain service quality.
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues and pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Screenshots
+
+#### Collection Overview
+
+![Collection Overview](./readme/collection.png)
+
+Real-time collection analytics with price trends and key metrics
+
+#### Asset Details
+
+![Asset Overview](./readme/asset.png)
+
+Detailed asset information with price history and market metrics
+
+#### Wallet Analysis
+
+![Wallet Overview](./readme/user.png)
+
+Comprehensive wallet analytics showing trading patterns and activity
+
+## Privacy
+
+NFTea only reads the current OpenSea pages url to provide analytics. No personal data is collected or stored.
+
+## Support
+
+For support, please open an issue on the GitHub repository or reach me at [amousavig@icloud.com](amousavig@icloud.com)
+
+---
+
+Built with ☕ and 🫖

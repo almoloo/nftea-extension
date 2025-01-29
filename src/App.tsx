@@ -55,7 +55,12 @@ function App() {
 						)}
 					</>
 				) : (
-					<>NOT SUPPORTED</>
+					<div className="w-full h-full grow flex flex-col items-center justify-center gap-2 py-10">
+						<p className="text-xs text-gray-500">
+							This extension is designed to work with OpenSea.
+							Please visit an OpenSea page to see the data.
+						</p>
+					</div>
 				)}
 			</section>
 			<Footer />
