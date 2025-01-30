@@ -4,7 +4,7 @@ NFTea is a Chrome extension that brings powerful NFT analytics directly into you
 
 ![Cover](./readme/cover.png)
 
-Download from Chrome Store (Awaiting review)
+[⬇️ Download from Chrome Store ⬇️](https://chromewebstore.google.com/detail/nftea/jbjnihmiaabpkemcaanblhjdjbphdakc)
 
 ## Features
 
